@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="in.mcxiv.animation.AnimatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-14T10:10:07" hostname="LEN-CELENTIS" time="3.064">
+  <properties/>
+  <testcase name="test()" classname="in.mcxiv.animation.AnimatorTest" time="3.064"/>
+  <system-out><![CDATA[mspf = 41
+calls = 49
+deltas = 2009.0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

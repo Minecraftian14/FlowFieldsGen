@@ -1,0 +1,40 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  height: 100%;
+}
+
+.base {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.8; /* for demo purpose  */
+}
+
+.stack-top {
+  margin: 20px; /* for demo purpose  */
+}
+
+#p {
+  z-index: 9;
+  font-size: 6rem;
+  height: auto;
+  width: 100%;
+  top: auto;
+}
