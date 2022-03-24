@@ -5,6 +5,7 @@ import in.mcxiv.animation.TimeLine;
 import in.mcxiv.animation.events.StartEvent;
 import in.mcxiv.animation.events.StopEvent;
 import in.mcxiv.animation.events.UIComponentEvent;
+import in.mcxiv.music.MusicBox;
 
 import javax.swing.*;
 import java.awt.*;
@@ -45,6 +46,7 @@ public class Display extends JFrame {
         }
 
         animator.start();
+        new MusicBox();
     }
 
     private void addToTimeline(LargeTextPane pane, int length) {

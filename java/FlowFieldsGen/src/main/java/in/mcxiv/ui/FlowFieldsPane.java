@@ -33,8 +33,8 @@ public class FlowFieldsPane extends JPanel implements Actor {
         for (int i = 0; i < FORCE_POINTS_Y; i++) {
             for (int j = 0; j < FORCE_POINTS_X; j++) {
                 float vector = OpenSimplex2.noise2(SEED, i * DENSITY_FACTOR, j * DENSITY_FACTOR) * VARIANCE;
-                forceField[i][j][0] = (float) Math.sin(vector) * AMPLITUDE;
-                forceField[i][j][1] = (float) Math.cos(vector) * AMPLITUDE;
+                forceField[i][j][0] = (float) Math.sin(vector) * AMPLITUDE / 41;
+                forceField[i][j][1] = (float) Math.cos(vector) * AMPLITUDE/ 41;
             }
         }
         particles = new float[PARTICLES][2];
@@ -61,9 +61,9 @@ public class FlowFieldsPane extends JPanel implements Actor {
         for (int i = 0; i < PARTICLES; i++) {
             float[] force = forceField
                     [(int) (particles[i][0] / getHeight() * FORCE_POINTS_Y)]
-                    [(int) (particles[i][1] / getWidth() * FORCE_POINTS_Y)];
-            particles[i][0] = clamp(0, getHeight(), particles[i][0] + force[0]);
-            particles[i][1] = clamp(0, getWidth(), particles[i][1] + force[1]);
+                    [(int) (particles[i][1] / getWidth() * FORCE_POINTS_X)];
+            particles[i][0] = clamp(0, getHeight(), particles[i][0] + force[0] * delta);
+            particles[i][1] = clamp(0, getWidth(), particles[i][1] + force[1]* delta);
         }
         repaint();
     }
@@ -91,7 +91,12 @@ public class FlowFieldsPane extends JPanel implements Actor {
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.setColor(COLOR);
         for (int i = 0; i < PARTICLES; i++)
-            g.fillRect((int) particles[i][1], (int) particles[i][0], 1, 1);
+//            g.fillRect((int) particles[i][1], (int) particles[i][0], 1, 1);
+        {
+            int x = (int) particles[i][1];
+            int y = (int) particles[i][0];
+            g.drawLine(x, y, x + 1, y + 1);
+        }
     }
 
     @Override

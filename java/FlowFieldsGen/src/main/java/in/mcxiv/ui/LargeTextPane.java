@@ -14,7 +14,7 @@ public class LargeTextPane extends JPanel implements Actor {
     private final SimpleMutableFloatingColor color = new SimpleMutableFloatingColor(1, 1, 1, 1);
     private final JLabel label;
 
-    public LargeTextPane(String text, int length) {
+    public  LargeTextPane(String text, int length) {
         setLayout(new GridBagLayout());
         this.length = length;
         this.halfLength = length / 2;
